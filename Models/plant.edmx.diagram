@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="1215d480d6ac4433a483135f551ca132" Name="Diagram1">
+        <EntityTypeShape EntityType="plantprojectModel.Client" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="plantprojectModel.MaterialsSupplier" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="plantprojectModel.Order" Width="1.5" PointX="0.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="plantprojectModel.OrderStatu" Width="1.5" PointX="2.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="plantprojectModel.PartLocation" Width="1.5" PointX="4.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="plantprojectModel.Part" Width="1.5" PointX="4.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="plantprojectModel.PartsMaterial" Width="1.5" PointX="6.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="plantprojectModel.SalesPerson" Width="1.5" PointX="0.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="plantprojectModel.ZipCode" Width="1.5" PointX="2.75" PointY="6.75" IsExpanded="true" />
+        <AssociationConnector Association="plantprojectModel.ClientMaterialsSupplier" />
+        <AssociationConnector Association="plantprojectModel.ClientMaterialsSupplier1" />
+        <AssociationConnector Association="plantprojectModel.MaterialsSupplierOrder" />
+        <AssociationConnector Association="plantprojectModel.OrderStatuPartLocation" />
+        <AssociationConnector Association="plantprojectModel.PartPartsMaterial" />
+        <AssociationConnector Association="plantprojectModel.PartsMaterialSalesPerson" />
+        <AssociationConnector Association="plantprojectModel.ZipCodeClient" />
+        <AssociationConnector Association="plantprojectModel.PartLocationPart" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

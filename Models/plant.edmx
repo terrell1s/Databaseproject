@@ -1,0 +1,447 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="plantprojectModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Client">
+          <Key>
+            <PropertyRef Name="ClientID" />
+          </Key>
+          <Property Name="ClientID" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="ClientName" Type="varchar" MaxLength="50" />
+          <Property Name="ClientAddress" Type="varchar" MaxLength="50" />
+          <Property Name="ZipID" Type="varchar" MaxLength="50" />
+          <Property Name="OrderID" Type="varchar" MaxLength="50" />
+          <Property Name="SalesPersonID" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="MaterialsSupplier">
+          <Key>
+            <PropertyRef Name="SupplierID" />
+          </Key>
+          <Property Name="SupplierID" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="SupplierName" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Order">
+          <Key>
+            <PropertyRef Name="OrderID" />
+          </Key>
+          <Property Name="OrderID" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="PartID" Type="varchar" MaxLength="50" />
+          <Property Name="StatusID" Type="varchar" MaxLength="50" />
+          <Property Name="Quanity" Type="varchar" MaxLength="50" />
+          <Property Name="ClientID" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="OrderStatus">
+          <Key>
+            <PropertyRef Name="StatusID" />
+          </Key>
+          <Property Name="StatusID" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="StatusName" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="PartLocation">
+          <Key>
+            <PropertyRef Name="LocationID" />
+          </Key>
+          <Property Name="LocationID" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="LocationName" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Parts">
+          <Key>
+            <PropertyRef Name="PartsID" />
+          </Key>
+          <Property Name="PartsID" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="PartName" Type="varchar" MaxLength="50" />
+          <Property Name="LoctionID" Type="varchar" MaxLength="50" />
+          <Property Name="SupplierID" Type="varchar" MaxLength="50" />
+          <Property Name="MaterialID" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="PartsMaterial">
+          <Key>
+            <PropertyRef Name="MaterialID" />
+          </Key>
+          <Property Name="MaterialID" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="MaterialName" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="SalesPerson">
+          <Key>
+            <PropertyRef Name="StatusID" />
+          </Key>
+          <Property Name="StatusID" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="SalesPersonID" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="ZipCode">
+          <Key>
+            <PropertyRef Name="ZipID" />
+          </Key>
+          <Property Name="ZipID" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="State" Type="varchar" MaxLength="50" />
+          <Property Name="City" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityContainer Name="plantprojectModelStoreContainer">
+          <EntitySet Name="Client" EntityType="Self.Client" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MaterialsSupplier" EntityType="Self.MaterialsSupplier" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Order" EntityType="Self.Order" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="OrderStatus" EntityType="Self.OrderStatus" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PartLocation" EntityType="Self.PartLocation" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Parts" EntityType="Self.Parts" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PartsMaterial" EntityType="Self.PartsMaterial" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SalesPerson" EntityType="Self.SalesPerson" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ZipCode" EntityType="Self.ZipCode" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="plantprojectModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Client">
+          <Key>
+            <PropertyRef Name="ClientID" />
+          </Key>
+          <Property Name="ClientID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ClientName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ClientAddress" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ZipID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="OrderID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="SalesPersonID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="MaterialsSuppliers" Relationship="plantprojectModel.ClientMaterialsSupplier" FromRole="Client" ToRole="MaterialsSupplier" />
+          <NavigationProperty Name="MaterialsSuppliers1" Relationship="plantprojectModel.ClientMaterialsSupplier1" FromRole="Client" ToRole="MaterialsSupplier" />
+          <NavigationProperty Name="ZipCode" Relationship="plantprojectModel.ZipCodeClient" FromRole="Client" ToRole="ZipCode" />
+          <Property Name="ZipCodeZipID" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="MaterialsSupplier">
+          <Key>
+            <PropertyRef Name="SupplierID" />
+          </Key>
+          <Property Name="SupplierID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="SupplierName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Client" Relationship="plantprojectModel.ClientMaterialsSupplier" FromRole="MaterialsSupplier" ToRole="Client" />
+          <Property Name="ClientClientID" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Client1" Relationship="plantprojectModel.ClientMaterialsSupplier1" FromRole="MaterialsSupplier" ToRole="Client" />
+          <Property Name="ClientClientID1" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Orders" Relationship="plantprojectModel.MaterialsSupplierOrder" FromRole="MaterialsSupplier" ToRole="Order" />
+        </EntityType>
+        <EntityType Name="Order">
+          <Key>
+            <PropertyRef Name="OrderID" />
+          </Key>
+          <Property Name="OrderID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="PartID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="StatusID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Quanity" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ClientID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="MaterialsSupplier" Relationship="plantprojectModel.MaterialsSupplierOrder" FromRole="Order" ToRole="MaterialsSupplier" />
+          <Property Name="MaterialsSupplierSupplierID" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="OrderStatu">
+          <Key>
+            <PropertyRef Name="StatusID" />
+          </Key>
+          <Property Name="StatusID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="StatusName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="PartLocations" Relationship="plantprojectModel.OrderStatuPartLocation" FromRole="OrderStatu" ToRole="PartLocation" />
+        </EntityType>
+        <EntityType Name="PartLocation">
+          <Key>
+            <PropertyRef Name="LocationID" />
+          </Key>
+          <Property Name="LocationID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="LocationName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="OrderStatu" Relationship="plantprojectModel.OrderStatuPartLocation" FromRole="PartLocation" ToRole="OrderStatu" />
+          <Property Name="OrderStatuStatusID" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Parts" Relationship="plantprojectModel.PartLocationPart" FromRole="PartLocation" ToRole="Part" />
+        </EntityType>
+        <EntityType Name="Part">
+          <Key>
+            <PropertyRef Name="PartsID" />
+          </Key>
+          <Property Name="PartsID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="PartName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="LoctionID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="SupplierID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="MaterialID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="PartsMaterials" Relationship="plantprojectModel.PartPartsMaterial" FromRole="Part" ToRole="PartsMaterial" />
+          <NavigationProperty Name="PartLocation" Relationship="plantprojectModel.PartLocationPart" FromRole="Part" ToRole="PartLocation" />
+          <Property Name="PartLocationLocationID" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="PartsMaterial">
+          <Key>
+            <PropertyRef Name="MaterialID" />
+          </Key>
+          <Property Name="MaterialID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="MaterialName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Part" Relationship="plantprojectModel.PartPartsMaterial" FromRole="PartsMaterial" ToRole="Part" />
+          <Property Name="PartPartsID" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="SalesPersons" Relationship="plantprojectModel.PartsMaterialSalesPerson" FromRole="PartsMaterial" ToRole="SalesPerson" />
+        </EntityType>
+        <EntityType Name="SalesPerson">
+          <Key>
+            <PropertyRef Name="StatusID" />
+          </Key>
+          <Property Name="StatusID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="SalesPersonID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="PartsMaterial" Relationship="plantprojectModel.PartsMaterialSalesPerson" FromRole="SalesPerson" ToRole="PartsMaterial" />
+          <Property Name="PartsMaterialMaterialID" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="ZipCode">
+          <Key>
+            <PropertyRef Name="ZipID" />
+          </Key>
+          <Property Name="ZipID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="State" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="City" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Clients" Relationship="plantprojectModel.ZipCodeClient" FromRole="ZipCode" ToRole="Client" />
+        </EntityType>
+        <EntityContainer Name="plantprojectEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Clients" EntityType="Self.Client" />
+          <EntitySet Name="MaterialsSuppliers" EntityType="Self.MaterialsSupplier" />
+          <EntitySet Name="Orders" EntityType="Self.Order" />
+          <EntitySet Name="OrderStatus" EntityType="Self.OrderStatu" />
+          <EntitySet Name="PartLocations" EntityType="Self.PartLocation" />
+          <EntitySet Name="Parts" EntityType="Self.Part" />
+          <EntitySet Name="PartsMaterials" EntityType="Self.PartsMaterial" />
+          <EntitySet Name="SalesPersons" EntityType="Self.SalesPerson" />
+          <EntitySet Name="ZipCodes" EntityType="Self.ZipCode" />
+          <AssociationSet Name="ClientMaterialsSupplier" Association="plantprojectModel.ClientMaterialsSupplier">
+            <End Role="Client" EntitySet="Clients" />
+            <End Role="MaterialsSupplier" EntitySet="MaterialsSuppliers" />
+          </AssociationSet>
+          <AssociationSet Name="ClientMaterialsSupplier1" Association="plantprojectModel.ClientMaterialsSupplier1">
+            <End Role="Client" EntitySet="Clients" />
+            <End Role="MaterialsSupplier" EntitySet="MaterialsSuppliers" />
+          </AssociationSet>
+          <AssociationSet Name="MaterialsSupplierOrder" Association="plantprojectModel.MaterialsSupplierOrder">
+            <End Role="MaterialsSupplier" EntitySet="MaterialsSuppliers" />
+            <End Role="Order" EntitySet="Orders" />
+          </AssociationSet>
+          <AssociationSet Name="OrderStatuPartLocation" Association="plantprojectModel.OrderStatuPartLocation">
+            <End Role="OrderStatu" EntitySet="OrderStatus" />
+            <End Role="PartLocation" EntitySet="PartLocations" />
+          </AssociationSet>
+          <AssociationSet Name="PartPartsMaterial" Association="plantprojectModel.PartPartsMaterial">
+            <End Role="Part" EntitySet="Parts" />
+            <End Role="PartsMaterial" EntitySet="PartsMaterials" />
+          </AssociationSet>
+          <AssociationSet Name="PartsMaterialSalesPerson" Association="plantprojectModel.PartsMaterialSalesPerson">
+            <End Role="PartsMaterial" EntitySet="PartsMaterials" />
+            <End Role="SalesPerson" EntitySet="SalesPersons" />
+          </AssociationSet>
+          <AssociationSet Name="ZipCodeClient" Association="plantprojectModel.ZipCodeClient">
+            <End Role="ZipCode" EntitySet="ZipCodes" />
+            <End Role="Client" EntitySet="Clients" />
+          </AssociationSet>
+          <AssociationSet Name="PartLocationPart" Association="plantprojectModel.PartLocationPart">
+            <End Role="PartLocation" EntitySet="PartLocations" />
+            <End Role="Part" EntitySet="Parts" />
+          </AssociationSet>
+        </EntityContainer>
+        <Association Name="ClientMaterialsSupplier">
+          <End Type="plantprojectModel.Client" Role="Client" Multiplicity="1" />
+          <End Type="plantprojectModel.MaterialsSupplier" Role="MaterialsSupplier" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Client">
+              <PropertyRef Name="ClientID" />
+            </Principal>
+            <Dependent Role="MaterialsSupplier">
+              <PropertyRef Name="ClientClientID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="ClientMaterialsSupplier1">
+          <End Type="plantprojectModel.Client" Role="Client" Multiplicity="1" />
+          <End Type="plantprojectModel.MaterialsSupplier" Role="MaterialsSupplier" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Client">
+              <PropertyRef Name="ClientID" />
+            </Principal>
+            <Dependent Role="MaterialsSupplier">
+              <PropertyRef Name="ClientClientID1" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="MaterialsSupplierOrder">
+          <End Type="plantprojectModel.MaterialsSupplier" Role="MaterialsSupplier" Multiplicity="1" />
+          <End Type="plantprojectModel.Order" Role="Order" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MaterialsSupplier">
+              <PropertyRef Name="SupplierID" />
+            </Principal>
+            <Dependent Role="Order">
+              <PropertyRef Name="MaterialsSupplierSupplierID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="OrderStatuPartLocation">
+          <End Type="plantprojectModel.OrderStatu" Role="OrderStatu" Multiplicity="1" />
+          <End Type="plantprojectModel.PartLocation" Role="PartLocation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="OrderStatu">
+              <PropertyRef Name="StatusID" />
+            </Principal>
+            <Dependent Role="PartLocation">
+              <PropertyRef Name="OrderStatuStatusID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="PartPartsMaterial">
+          <End Type="plantprojectModel.Part" Role="Part" Multiplicity="1" />
+          <End Type="plantprojectModel.PartsMaterial" Role="PartsMaterial" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Part">
+              <PropertyRef Name="PartsID" />
+            </Principal>
+            <Dependent Role="PartsMaterial">
+              <PropertyRef Name="PartPartsID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="PartsMaterialSalesPerson">
+          <End Type="plantprojectModel.PartsMaterial" Role="PartsMaterial" Multiplicity="1" />
+          <End Type="plantprojectModel.SalesPerson" Role="SalesPerson" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PartsMaterial">
+              <PropertyRef Name="MaterialID" />
+            </Principal>
+            <Dependent Role="SalesPerson">
+              <PropertyRef Name="PartsMaterialMaterialID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="ZipCodeClient">
+          <End Type="plantprojectModel.ZipCode" Role="ZipCode" Multiplicity="1" />
+          <End Type="plantprojectModel.Client" Role="Client" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ZipCode">
+              <PropertyRef Name="ZipID" />
+            </Principal>
+            <Dependent Role="Client">
+              <PropertyRef Name="ZipCodeZipID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="PartLocationPart">
+          <End Type="plantprojectModel.PartLocation" Role="PartLocation" Multiplicity="1" />
+          <End Type="plantprojectModel.Part" Role="Part" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PartLocation">
+              <PropertyRef Name="LocationID" />
+            </Principal>
+            <Dependent Role="Part">
+              <PropertyRef Name="PartLocationLocationID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="plantprojectModelStoreContainer" CdmEntityContainer="plantprojectEntities">
+          <EntitySetMapping Name="Clients">
+            <EntityTypeMapping TypeName="plantprojectModel.Client">
+              <MappingFragment StoreEntitySet="Client">
+                <ScalarProperty Name="ClientID" ColumnName="ClientID" />
+                <ScalarProperty Name="ClientName" ColumnName="ClientName" />
+                <ScalarProperty Name="ClientAddress" ColumnName="ClientAddress" />
+                <ScalarProperty Name="ZipID" ColumnName="ZipID" />
+                <ScalarProperty Name="OrderID" ColumnName="OrderID" />
+                <ScalarProperty Name="SalesPersonID" ColumnName="SalesPersonID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MaterialsSuppliers">
+            <EntityTypeMapping TypeName="plantprojectModel.MaterialsSupplier">
+              <MappingFragment StoreEntitySet="MaterialsSupplier">
+                <ScalarProperty Name="SupplierID" ColumnName="SupplierID" />
+                <ScalarProperty Name="SupplierName" ColumnName="SupplierName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Orders">
+            <EntityTypeMapping TypeName="plantprojectModel.Order">
+              <MappingFragment StoreEntitySet="Order">
+                <ScalarProperty Name="OrderID" ColumnName="OrderID" />
+                <ScalarProperty Name="PartID" ColumnName="PartID" />
+                <ScalarProperty Name="StatusID" ColumnName="StatusID" />
+                <ScalarProperty Name="Quanity" ColumnName="Quanity" />
+                <ScalarProperty Name="ClientID" ColumnName="ClientID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="OrderStatus">
+            <EntityTypeMapping TypeName="plantprojectModel.OrderStatu">
+              <MappingFragment StoreEntitySet="OrderStatus">
+                <ScalarProperty Name="StatusID" ColumnName="StatusID" />
+                <ScalarProperty Name="StatusName" ColumnName="StatusName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PartLocations">
+            <EntityTypeMapping TypeName="plantprojectModel.PartLocation">
+              <MappingFragment StoreEntitySet="PartLocation">
+                <ScalarProperty Name="LocationID" ColumnName="LocationID" />
+                <ScalarProperty Name="LocationName" ColumnName="LocationName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Parts">
+            <EntityTypeMapping TypeName="plantprojectModel.Part">
+              <MappingFragment StoreEntitySet="Parts">
+                <ScalarProperty Name="PartsID" ColumnName="PartsID" />
+                <ScalarProperty Name="PartName" ColumnName="PartName" />
+                <ScalarProperty Name="LoctionID" ColumnName="LoctionID" />
+                <ScalarProperty Name="SupplierID" ColumnName="SupplierID" />
+                <ScalarProperty Name="MaterialID" ColumnName="MaterialID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PartsMaterials">
+            <EntityTypeMapping TypeName="plantprojectModel.PartsMaterial">
+              <MappingFragment StoreEntitySet="PartsMaterial">
+                <ScalarProperty Name="MaterialID" ColumnName="MaterialID" />
+                <ScalarProperty Name="MaterialName" ColumnName="MaterialName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SalesPersons">
+            <EntityTypeMapping TypeName="plantprojectModel.SalesPerson">
+              <MappingFragment StoreEntitySet="SalesPerson">
+                <ScalarProperty Name="StatusID" ColumnName="StatusID" />
+                <ScalarProperty Name="SalesPersonID" ColumnName="SalesPersonID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ZipCodes">
+            <EntityTypeMapping TypeName="plantprojectModel.ZipCode">
+              <MappingFragment StoreEntitySet="ZipCode">
+                <ScalarProperty Name="ZipID" ColumnName="ZipID" />
+                <ScalarProperty Name="State" ColumnName="State" />
+                <ScalarProperty Name="City" ColumnName="City" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
